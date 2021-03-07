@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+## Project Brief
 
-You can use the [editor on GitHub](https://github.com/avisaharan/WEB701/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+The web app at “FoodForNeedy.org.nz” will let the restaurants in Nelson register with the charity, and help them donate everydays leftover food to the people in need. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+It will have following features:
 
-### Markdown
+### For donors:
+1. Homepage: Showcasing the charities work, services offered, and guide on how future members can join.
+2. Register: Let donors register with the charity.
+3. DonateSpace: Let restaurants enter everyday leftover food details (free or at reduced price- whichever they want) 
+4. On backend- Linking the data of food entered by donors to the food ordered/received by the beneficiaries to keep track.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### For beneficiaries:
+1. Homepage: Showing the charities work, services offered, and guide on how they can benefit. 
+2. Token system on backend: The system will generate a specific number of tokens based on details entered by beneficiaries. The details could include financial statements or proof of govt financial support.
+3. Backend: Let beneficiaries place orders from the restaurants and keep track of token usage and restaurants available food.
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/avisaharan/WEB701/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### For General public
+1. Homepage: Same for all
+2. DonateSpace: System to donate money to generate new tokens, which can be distributed to beneficiaries to purchase food which is not listed as free by the restaurants. 
+3. Page showing other ways they can help the charity. 
