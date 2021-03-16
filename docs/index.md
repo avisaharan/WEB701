@@ -1,6 +1,6 @@
 ## Project Brief
 
-The web app at “FoodForNeedy.org.nz” will let the restaurants in Nelson register with the charity, and help them donate everydays leftover food to the people in need. 
+The web app at “FoodForNeedy.org.nz” will let the restaurants in Nelson register with the charity, and help them donate everydays excess food to the people in need. 
 
 It will have following features:
 
