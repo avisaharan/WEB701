@@ -7,7 +7,7 @@ It will have following features:
 ### For donors:
 1. Homepage: Showcasing the charities work, services offered, and guide on how future members can join.
 2. Register: Let donors register with the charity.
-3. DonateSpace: Let restaurants enter everyday leftover food details (free or at reduced price- whichever they want) 
+3. DonateSpace: Let restaurants enter everydays excess food details (free or at reduced price) 
 4. On backend- Linking the data of food entered by donors to the food ordered/received by the beneficiaries to keep track.
 
 ### For beneficiaries:
