@@ -19,3 +19,24 @@ It will have following features:
 1. Homepage: Same for all
 2. DonateSpace: System to donate money to generate new tokens, which can be distributed to beneficiaries to purchase food which is not listed as free by the restaurants. 
 3. Page showing other ways they can help the charity. 
+
+## Week 1 Journal
+
+This week we :
+
+1. Overviewed the course outline and project requirements. 
+2. Learned about web frameworks (collection of HTML, CSS and Javascript files that speed up site development by providing a foundation for structure, layout and functionality for web app).
+3. Learned about information architecture (Organising information to fit project needs and provide flexibility.)
+
+Pros of using web frameworks:
+- Speeds up development time
+- Cross browser compatiability
+- Building on what's already done. 
+
+Cons:
+- We don't need most of the code the framework offers.
+- Size of project will become big.
+- Modifying the framework to fit the project needs can be time-consuming. 
+- Need to pay close attention to formal documentation to make changes.
+
+We also practised creating a MEAN (MongoDB, Express, Angular & Node) stack application using this guide: https://www.linkedin.com/learning/mongodb-for-mean-stack-developers/install-mongodb
