@@ -16,7 +16,7 @@
     <div class="navbar-brand">
       <a href="#/" class="navbar-item">
         <span class="title"></span>
-        <a class="button is-primary is-light" href="#/">
+        <a class="button is-primary is-light " href="#/">
           Home 💸
         </a>
       </a>

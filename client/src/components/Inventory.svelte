@@ -1,5 +1,4 @@
 <script>
-    export let deleteItemFromInventory
     import {items,cartItems} from "../stores";
     import {user} from "../stores";
     import {slide} from 'svelte/transition'
@@ -12,18 +11,30 @@
   }
 </script>
 
-<div class="buy-item-box container">
+{#if $items.length > 0}
+    <table class="table container box">
+      <thead><tr><th></th><th><b>Buy these</b></th><th></th><th></th></tr></thead>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Tokens</th>
+        <th>Posted Date</th>
+        <th>Add to Cart</th>
+      </tr>
+    </thead>
+    <tbody>
     {#each $items as item}
-      <div class="notification" transition:slide={{ duration: 250 }}>
-        <span
-          ><b>{item.name}</b> for ${item.value} tokens. Listed on {(item.date)}</span
-        >
-        {#if item.user_id==$user._id}
-        <button on:click={deleteItemFromInventory(item._id) }
-          >Delete From Inventory</button
-        >
-        {/if}
-        <button on:click={addToCart(item)}>Add to Cart</button>
-      </div>
+    <tr>
+      <td>{item.name}</td>
+      <td>${item.value}</td>
+      <td>{(item.date).substring(0, (item.date).length - 14)}</td>
+      <td><button
+        on:click={addToCart(item)}
+          class="add"
+        >🛒Add to Cart</button>
+      </td>
+    </tr>
     {/each}
-  </div>
+  </tbody>
+</table>
+{/if}

@@ -37,8 +37,9 @@
 </script>
 
 <InputItem bind:itemName={itemName} bind:itemPrice={itemPrice} addItemToInventory={addItemToInventory}/>
-<hr />
-<Inventory deleteItemFromInventory={deleteItemFromInventory}/>
-<hr />
+<div class='box'>
+  <Inventory deleteItemFromInventory={deleteItemFromInventory}/>
 <Cart/>
+</div>
+
 
