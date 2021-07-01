@@ -1,7 +1,7 @@
 {
-    "name": "expenses-tracker",
+    "name": "charity-app",
     "version": "1.0.0",
-    "description": "",
+    "description": "Charity App created for school project",
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
