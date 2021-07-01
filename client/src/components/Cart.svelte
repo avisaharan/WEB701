@@ -1,5 +1,6 @@
 <script>
   import { items } from "../stores";
+  
   let cartItems=$items.filter(item => item.in_cart==true)
   function buyStuff(theseItems){
         alert("You Bought"+ {theseItems})
