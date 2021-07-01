@@ -15,7 +15,10 @@
   <div class="container">
     <div class="navbar-brand">
       <a href="#/" class="navbar-item">
-        <span class="title">💸</span>
+        <span class="title"></span>
+        <a class="button is-primary is-light" href="#/">
+          Home 💸
+        </a>
       </a>
       <span
         class="navbar-burger burger"
@@ -34,7 +37,9 @@
           <div class="buttons">
             {#if $user}
               <a class="button is-primary is-light" href="#/profile">
-                👤 {$user.username}
+                👤 {$user.username.charAt(0).toUpperCase() + $user.username.slice(1)}'s Profile
+              </a>
+              <a class="button is-primary is-light" href="#/cart">Cart 🛒
               </a>
               <button class="button" on:click={logout}>Log out</button>
             {:else}

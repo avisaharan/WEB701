@@ -1,14 +1,14 @@
 <script>
-    export let deleteItemFromInventory,cartItems;
-    import {items} from "../stores";
+    export let deleteItemFromInventory
+    import {items,cartItems} from "../stores";
     import {user} from "../stores";
     import {slide} from 'svelte/transition'
 
     function addToCart(item) {
-    if (cartItems.find((element) => element == item)) {
+    if ($cartItems.find((element) => element == item)) {
       return alert("Item already in cart");
     }
-    cartItems = [item, ...cartItems];
+    $cartItems = [item, ...$cartItems];
   }
 </script>
 

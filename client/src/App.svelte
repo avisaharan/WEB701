@@ -6,6 +6,7 @@
   import Signup from "./pages/Signup.svelte";
   import Login from "./pages/Login.svelte";
   import Prolife from "./pages/Profile.svelte";
+  import Cart from "./pages/Cart.svelte"
   import Navbar from "./components/Navbar.svelte";
   import Loading from "./components/Loading.svelte";
   import { onMount } from "svelte";
@@ -25,7 +26,8 @@
     "/dashboard": wrap(Dashboard, { reason: "unauthenticated" }, () => $user),
     "/signup": wrap(Signup, { reason: "authenticated" }, () => !$user),
     "/login": wrap(Login, { reason: "authenticated" }, () => !$user),
-    "/profile": wrap(Prolife, { reason: "unauthenticated" }, () => $user)
+    "/profile": wrap(Prolife, { reason: "unauthenticated" }, () => $user),
+    "/cart": wrap(Cart, { reason: "unauthenticated" }, () => $user)
   };
 
   function conditionsFailed(event) {
