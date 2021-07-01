@@ -4,7 +4,7 @@
   import Cart from '../components/Cart.svelte'
   import InputItem from '../components/InputItem.svelte'
   import Inventory from '../components/Inventory.svelte'
-  import {items, cartItems} from "../stores";
+  import {items} from "../stores";
 
   let itemsApi = "/api/items/";
   let itemName = "";
@@ -31,14 +31,13 @@
     const response = await axios.delete(itemsApi + id);
     if (response.data.id === id) {
       $items = $items.filter((t) => t._id !== id);
-      $cartItems = $cartItems.filter((t) => t._id !== id);
     }
   }
 </script>
 
 <InputItem bind:itemName={itemName} bind:itemPrice={itemPrice} addItemToInventory={addItemToInventory}/>
 <div class='box'>
-  <Inventory deleteItemFromInventory={deleteItemFromInventory}/>
+  <Inventory class="is-vcentered"/>
 <Cart/>
 </div>
 

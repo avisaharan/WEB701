@@ -2,7 +2,9 @@ import { writable, derived } from 'svelte/store'
 
 export const user = writable(null)
 export const items = writable([])
-export let cartItems = writable([]);
+
+
+
 // export let income=writable(Number)
 // export let tokensLeft=writable(Number);
 

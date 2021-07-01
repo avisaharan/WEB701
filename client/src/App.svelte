@@ -9,7 +9,7 @@
   import CartPage from "./pages/CartPage.svelte"
   import Navbar from "./components/Navbar.svelte";
   import Loading from "./components/Loading.svelte";
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import axios from "axios";
   import { user } from "./stores";
 
@@ -19,7 +19,8 @@
     const { data } = await axios.get("/api/auth/user");
     $user = data.user;
     loading = false;
-  });
+   
+});
 
   const routes = {
     "/": wrap(Home, { reason: "authenticated" }, () => !$user),
@@ -50,7 +51,6 @@
     margin: auto;
   }
 </style>
-
 {#if loading}
   <div class="loading-container">
     <Loading />

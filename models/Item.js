@@ -18,6 +18,10 @@ const ItemsSchema = new Schema({
         type: String,
         required: true,
     },
+    in_cart: {
+        type:Boolean,
+        default:false,
+    }
 })
 
 const Item = model('item', ItemsSchema)
