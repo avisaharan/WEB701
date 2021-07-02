@@ -13,10 +13,10 @@ Your app will run at localhost:8080
 
 ## Journals are [Here](../Documents/Journals/index.md)
  
- ## Design Documentation is [Here](../Documents/Milestone 1.pdf)
+## Design Documentation is [Here](../Documents/Milestone 1.pdf)
  
- ## Evaluation of Web Frameworks is [Here](../Documents/Web Framework Comparison.pdf)
+## Evaluation of Web Frameworks is [Here](../Documents/Web Framework Comparison.pdf)
  
- ## Essay On Web Frameworks is [Here](../Documents/Essay on Web Frameworks.pdf)
+## Essay On Web Frameworks is [Here](../Documents/Essay on Web Frameworks.pdf)
  
  
