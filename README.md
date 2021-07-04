@@ -1,15 +1,13 @@
 # WEB701
 
-Full stack application with express js, mongodb, svelte and node js 
+Full stack web application using Express.js, MongoDB, Svelte and Node.js 
 
-Build at https://charity-app-svelte.herokuapp.com/
+Live here:  https://charity-app-svelte.herokuapp.com/
 
-## To develop this application 
+To develop this application:
 
-1. Install the dependencies using : 'npm install' in base folder and in /client folder
-2. Run the App from root folder **(not client)** using 'npm run dev'
-
-Your app will run at localhost:8080
+1. Install the dependencies using : 'npm install' in base folder and ** in /client folder **
+2. Run the App from **root folder** using 'npm run dev'
 
 ## Journals are [Here](../Documents/Journals/index.md)
 
