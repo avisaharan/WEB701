@@ -47,7 +47,7 @@
       {#each $cartItems as item}
         <tr>
           <td>{item.name}</td>
-          <td>${item.value}</td>
+          <td>{item.value}</td>
           <td>{item.date.substring(0, item.date.length - 14)}</td>
           <td
             ><button

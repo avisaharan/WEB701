@@ -23,7 +23,11 @@ import GenerateTokens from "./components/GenerateTokens.svelte";
       $loggedInUser=$user._id;
     $tokens=data.user.tokens;
     }
-    $cartItems=JSON.parse(localStorage.getItem('cartItems'))
+    if(localStorage.getItem('cartItems')){
+      $cartItems=JSON.parse(localStorage.getItem('cartItems'))
+    }
+    else $cartItems=[];
+    
     loading = false;
 });
 
