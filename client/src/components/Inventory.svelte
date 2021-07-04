@@ -1,7 +1,7 @@
 <script>
     import {items, user, cartItems, tokens, tokensRequired} from "../stores";
     $tokensRequired=0;
-  if($cartItems.length>0){
+  $: if($cartItems.length>0){
     $tokensRequired=$cartItems.reduce((a, b) => ({
             value: a.value + b.value,
   })).value;
