@@ -9,8 +9,8 @@
     }
   }
 </script>
-
-<table class="table container box">
+<hr/>
+<table class="table container box" >
   <thead>
     <tr>
       <th>Item</th>
@@ -32,4 +32,8 @@
   {/each}
 </tbody>
 </table>
+
+<style>
+
+</style>
 

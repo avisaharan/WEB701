@@ -74,7 +74,7 @@ router.post(
 
 function extractUser(req) {
     const { username, _id, tokens } = req.user
-    return { user: { username, _id } }
+    return { user: { username, _id, tokens } }
 }
 
 module.exports = router

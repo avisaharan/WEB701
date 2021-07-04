@@ -12,12 +12,15 @@
   import Loading from "./components/Loading.svelte";
   import { onDestroy, onMount } from "svelte";
   import axios from "axios";
-  import { user,loggedInUser, cartItems } from "./stores";
+  import { user,loggedInUser, cartItems, tokens } from "./stores";
+import PasswordReset from "./components/PasswordReset.svelte";
+import GenerateTokens from "./components/GenerateTokens.svelte";
   let loading = true;
   onMount(async () => {
     const { data } = await axios.get("/api/auth/user");
-    $loggedInUser=data.user._id;
     $user = data.user;
+    $loggedInUser=data.user._id;
+    $tokens=data.user.tokens;
     $cartItems=JSON.parse(localStorage.getItem('cartItems'))
     loading = false;
 
@@ -30,7 +33,9 @@
     "/login": wrap(Login, { reason: "authenticated" }, () => !$user),
     "/profile": wrap(Profile, { reason: "unauthenticated" }, () => $user),
     "/cart": wrap(Cart, { reason: "unauthenticated" }, () => $user),
-    "/myItems": wrap(MyItems, { reason: "unauthenticated" }, () => $user)
+    "/myItems": wrap(MyItems, { reason: "unauthenticated" }, () => $user),
+    "/passwordReset": wrap(PasswordReset, { reason: "unauthenticated" }, () => $user),
+    "/generateTokens": wrap(GenerateTokens, { reason: "unauthenticated" }, () => $user)
   };
 
   function conditionsFailed(event) {
