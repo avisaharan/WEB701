@@ -6,6 +6,8 @@
   import Inventory from "../components/Inventory.svelte";
   import { items, sortKey, user } from "../stores";
   import MyItems from "../components/MyItems.svelte";
+
+  let sortKeyPrevious='';
   let itemName = "";
   let itemPrice = 0;
 
@@ -22,8 +24,17 @@
     $items = data;
     if (localStorage.getItem("sortKey")) {
       $sortKey = localStorage.getItem("sortKey");
-      $items = sort_by_key($items, $sortKey);
-    } else $sortKey = "a";
+      if(localStorage.getItem('sortKey2')){
+        sortKeyPrevious=localStorage.getItem('sortKey2');
+        if(sortKeyPrevious==$sortKey){
+          $items = sort_by_key($items, $sortKey).reverse();
+        }
+        else{
+          $items = sort_by_key($items, $sortKey);
+        }
+      }
+      localStorage.setItem('sortKey2',$sortKey)
+    } else $sortKey = "Not defined";
   });
 
   async function addItemToInventory() {

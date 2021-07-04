@@ -8,6 +8,7 @@
     sortKey,
   } from "../stores";
   $tokensRequired = 0;
+  if(tokens==null){tokens=0;}
   $: if ($cartItems.length > 0) {
     $tokensRequired = $cartItems.reduce((a, b) => ({
       value: a.value + b.value,
@@ -108,6 +109,4 @@
 </div>
 
 <style>
-  .container {
-  }
 </style>
