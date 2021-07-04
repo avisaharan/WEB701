@@ -9,13 +9,6 @@
 
 <style>
 
-  /* .container{
-    display:flex;
-    flex: wrap;
-    justify-content: space-around;
-    align-content: center;
-  }*/
-
 </style>
 
 

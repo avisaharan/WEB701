@@ -75,4 +75,27 @@ router.delete('/:id', ensureLogin, async (req, res) => {
     }
 })
 
+router.post(
+    '/buyStuff',
+    async (req, res) => {
+        const {cartItems} = req.body
+        let item,removed;
+        try {
+            for (var i = 0; i < cartItems.length; i++) {
+                item = await Item.findById(cartItems[i]._id)
+                if (!item) {
+                    throw new Error('No item was found')
+                }
+                removed = await item.remove()
+                if (!removed) {
+                    throw new Error('There was a problem deleting the item')
+                }
+            }
+            res.status(200).json("")
+        } catch (error) {
+            return res.send("Error")
+        }
+    }
+)
+
 module.exports = router

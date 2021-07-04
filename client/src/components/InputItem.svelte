@@ -15,7 +15,7 @@
   
   <div class="field">
     <!-- svelte-ignore a11y-label-has-associated-control -->
-    <label class="label">Item Price</label>
+    <label class="label">Price</label>
     <div class="control">
       <input class="input" type="number" placeholder="Leave it blank if you want to list the item for Free" bind:value={itemPrice}>
     </div>

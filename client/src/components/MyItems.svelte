@@ -1,11 +1,13 @@
 <script>
-    import{items, loggedInUser} from '../stores'
+    import{items, loggedInUser,cartItems} from '../stores'
     import axios from "axios";
 
     async function deleteItemFromInventory(id) {
     const response = await axios.delete('/api/items/' + id);
     if (response.data.id === id) {
       $items = $items.filter((t) => t._id !== id);
+      $cartItems=$cartItems.filter((t)=> t._id!==id);
+      localStorage.setItem("cartItems", JSON.stringify($cartItems))
     }
   }
 </script>

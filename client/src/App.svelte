@@ -19,11 +19,12 @@ import GenerateTokens from "./components/GenerateTokens.svelte";
   onMount(async () => {
     const { data } = await axios.get("/api/auth/user");
     $user = data.user;
-    $loggedInUser=data.user._id;
+    if($user){
+      $loggedInUser=$user._id;
     $tokens=data.user.tokens;
+    }
     $cartItems=JSON.parse(localStorage.getItem('cartItems'))
     loading = false;
-
 });
 
   const routes = {
@@ -35,7 +36,7 @@ import GenerateTokens from "./components/GenerateTokens.svelte";
     "/cart": wrap(Cart, { reason: "unauthenticated" }, () => $user),
     "/myItems": wrap(MyItems, { reason: "unauthenticated" }, () => $user),
     "/passwordReset": wrap(PasswordReset, { reason: "unauthenticated" }, () => $user),
-    "/generateTokens": wrap(GenerateTokens, { reason: "unauthenticated" }, () => $user)
+    "/generateTokens": wrap(GenerateTokens, { reason: "unauthenticated" }, () => $user),
   };
 
   function conditionsFailed(event) {

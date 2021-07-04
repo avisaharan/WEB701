@@ -72,6 +72,22 @@ router.post(
     }
 )
 
+router.post(
+    '/generateToken',
+    async (req, res) => {
+        const {tokens} = req.body
+        try {
+            const user = await User.findById(req.user._id)
+            user.tokens=tokens;
+            await user.save();
+            res.json({ "tokens": tokens })
+        } catch (error) {
+            return res.status(500).json({ message: 'There was an error' })
+        }
+    }
+)
+
+
 function extractUser(req) {
     const { username, _id, tokens } = req.user
     return { user: { username, _id, tokens } }

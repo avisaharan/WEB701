@@ -1,13 +1,34 @@
 <script>
-  import { items, cartItems } from "../stores";
-  function buyStuff() {
+  import { items, cartItems, tokens } from "../stores";
+  import axios from "axios";
+  let tokensRequired;
+  if($cartItems.length>0){
+    tokensRequired=$cartItems.reduce((a, b) => ({
+            value: a.value + b.value,
+  })).value;
+  }
+  
+  let newTokens=0;
 
-    alert("Purchase Complete");
-    $cartItems = [];
-    localStorage.setItem("cartItems", JSON.stringify($cartItems));
+  async function buyStuff(){
+    if($tokens>tokensRequired){
+    newTokens=$tokens-tokensRequired;
+    try{
+      const { data } = await axios.post("/api/auth/generateToken", { "tokens": newTokens });
+      $tokens=data.tokens;
+    } catch{}
+
+    try{
+      const {data}= await axios.post("/api/items/buyStuff", { "cartItems": $cartItems });
+      $cartItems=[];
+      return alert("Purchase Complete, tokens remaining: " + $tokens);
+    }catch{}
+    }
+    else {
+      return alert("Please update your tokens or reduce cart value.")
+    }
   }
 </script>
-
 <hr />
 <hr />
 <div class="container">
@@ -47,8 +68,14 @@
           })).value}</th
         >
         <th />
-        <th><button on:click={buyStuff}>🛒Buy</button></th>
+        <th><button class="button is-primary is-light" on:click={buyStuff}>🛒 Buy</button>
       </tr>
+      <tr>
+        <th><b>Token Balance: {$tokens} </b></th>
+        <th></th>  
+        <th></th>
+        <th><a class="button is-primary is-light" href="#/generateTokens">Update Tokens</a></th>
+    </tr>
     </tfoot>
   </table>
 {:else}<hr />
