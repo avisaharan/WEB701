@@ -11,7 +11,6 @@
 </script>
 
 <table class="table container box">
-    <thead><tr><th></th><th><b>Buy these</b></th><th></th><th></th></tr></thead>
   <thead>
     <tr>
       <th>Item</th>

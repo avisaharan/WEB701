@@ -1,20 +1,15 @@
 <script>
-    import {items} from "../stores";
-    import {user} from "../stores";
+    import {items, user, cartItems} from "../stores";
 
-    function addToCart(item) {
-      if(item.in_cart==true){
-        return alert("Item already in cart");
+
+    function addToCart(itemToAdd) {
+      if($cartItems.find(item=>item._id==itemToAdd._id)){
+        return alert(`${itemToAdd.name} is already in cart.`)
       }
       else{
-        function changeCart(thisItem){
-          if(thisItem._id===item._id){
-            thisItem.in_cart=true;
-          }
-        }
-        
-        $items.forEach(element=>changeCart(element));
-        return alert("item added to cart");
+        $cartItems=[itemToAdd,...$cartItems]
+        localStorage.setItem("cartItems", JSON.stringify($cartItems))
+        return alert(`${itemToAdd.name} added to cart.`)
       }
 }
 

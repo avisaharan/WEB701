@@ -30,8 +30,6 @@ import MyItems from "../components/MyItems.svelte";
 <InputItem bind:itemName={itemName} bind:itemPrice={itemPrice} addItemToInventory={addItemToInventory}/>
 <div class='box'>
   <Inventory/>
-  <MyItems/>
-<Cart/>
 </div>
 
 

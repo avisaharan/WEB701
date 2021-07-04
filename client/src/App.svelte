@@ -12,14 +12,15 @@
   import Loading from "./components/Loading.svelte";
   import { onDestroy, onMount } from "svelte";
   import axios from "axios";
-  import { user,loggedInUser } from "./stores";
+  import { user,loggedInUser, cartItems } from "./stores";
   let loading = true;
   onMount(async () => {
     const { data } = await axios.get("/api/auth/user");
     $loggedInUser=data.user._id;
     $user = data.user;
+    $cartItems=JSON.parse(localStorage.getItem('cartItems'))
     loading = false;
-   
+
 });
 
   const routes = {
