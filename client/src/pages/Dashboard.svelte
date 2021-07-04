@@ -4,15 +4,15 @@
   import Cart from '../components/Cart.svelte'
   import InputItem from '../components/InputItem.svelte'
   import Inventory from '../components/Inventory.svelte'
-  import {items} from "../stores";
+  import {items, user} from "../stores";
+import MyItems from "../components/MyItems.svelte";
 
-  let itemsApi = "/api/items/";
   let itemName = "";
   let itemPrice = 0;
 
 
   onMount(async () => {
-    const { data } = await axios.get(itemsApi);
+    const { data } = await axios.get("/api/items/");
     $items = data;
   });
   async function addItemToInventory() {
@@ -21,23 +21,16 @@
       value: itemPrice,
       date: new Date().toISOString(),
     };
-    const response = await axios.post(itemsApi, item);
+    const response = await axios.post("/api/items/", item);
     $items = [response.data, ...$items];
     itemName = "";
     itemPrice = 0;
   }
-
-  async function deleteItemFromInventory(id) {
-    const response = await axios.delete(itemsApi + id);
-    if (response.data.id === id) {
-      $items = $items.filter((t) => t._id !== id);
-    }
-  }
 </script>
-
 <InputItem bind:itemName={itemName} bind:itemPrice={itemPrice} addItemToInventory={addItemToInventory}/>
 <div class='box'>
-  <Inventory class="is-vcentered"/>
+  <Inventory/>
+  <MyItems/>
 <Cart/>
 </div>
 

@@ -39,6 +39,8 @@
               <a class="button is-primary is-light" href="#/profile">
                 👤 {$user.username.charAt(0).toUpperCase() + $user.username.slice(1)}'s Profile
               </a>
+              <a class="button is-primary is-light" href="#/myItems">Items Listed By Me 🛒
+              </a>
               <a class="button is-primary is-light" href="#/cart">Cart 🛒
               </a>
               <button class="button" on:click={logout}>Log out</button>

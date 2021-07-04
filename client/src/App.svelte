@@ -1,22 +1,22 @@
 <script>
   import Router, { wrap, push } from "svelte-spa-router";
   
-  import Home from "./pages/Home.svelte";
+  import Home from "./components/Home.svelte";
   import Dashboard from "./pages/Dashboard.svelte";
-  import Signup from "./pages/Signup.svelte";
-  import Login from "./pages/Login.svelte";
-  import Prolife from "./pages/Profile.svelte";
-  import CartPage from "./pages/CartPage.svelte"
+  import Signup from "./components/Signup.svelte";
+  import Login from "./components/Login.svelte";
+  import Profile from "./components/Profile.svelte";
+  import Cart from "./components/Cart.svelte"
+  import MyItems from "./components/MyItems.svelte"
   import Navbar from "./components/Navbar.svelte";
   import Loading from "./components/Loading.svelte";
   import { onDestroy, onMount } from "svelte";
   import axios from "axios";
-  import { user } from "./stores";
-
+  import { user,loggedInUser } from "./stores";
   let loading = true;
-
   onMount(async () => {
     const { data } = await axios.get("/api/auth/user");
+    $loggedInUser=data.user._id;
     $user = data.user;
     loading = false;
    
@@ -27,8 +27,9 @@
     "/dashboard": wrap(Dashboard, { reason: "unauthenticated" }, () => $user),
     "/signup": wrap(Signup, { reason: "authenticated" }, () => !$user),
     "/login": wrap(Login, { reason: "authenticated" }, () => !$user),
-    "/profile": wrap(Prolife, { reason: "unauthenticated" }, () => $user),
-    "/cart": wrap(CartPage, { reason: "unauthenticated" }, () => $user)
+    "/profile": wrap(Profile, { reason: "unauthenticated" }, () => $user),
+    "/cart": wrap(Cart, { reason: "unauthenticated" }, () => $user),
+    "/myItems": wrap(MyItems, { reason: "unauthenticated" }, () => $user)
   };
 
   function conditionsFailed(event) {
@@ -41,7 +42,6 @@
     }
   }
 </script>
-
 <style>
   .loading-container {
     max-width: 500px;

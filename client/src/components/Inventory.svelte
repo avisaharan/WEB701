@@ -1,7 +1,6 @@
 <script>
     import {items} from "../stores";
     import {user} from "../stores";
-    import {slide} from 'svelte/transition'
 
     function addToCart(item) {
       if(item.in_cart==true){
@@ -17,10 +16,6 @@
         $items.forEach(element=>changeCart(element));
         return alert("item added to cart");
       }
-  //     else{
-  // function changeCart(thisItem){}
-  // $items.foreach(changeCart(selectedItem)
-  // }
 }
 
 </script>
