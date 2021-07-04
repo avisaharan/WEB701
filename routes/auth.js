@@ -75,10 +75,10 @@ router.post(
 router.post(
     '/generateToken',
     async (req, res) => {
-        const {tokens} = req.body
+        const { tokens } = req.body
         try {
             const user = await User.findById(req.user._id)
-            user.tokens=tokens;
+            user.tokens = tokens;
             await user.save();
             res.json({ "tokens": tokens })
         } catch (error) {

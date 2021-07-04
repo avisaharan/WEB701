@@ -14,7 +14,7 @@
     try {
       const { data } = await axios.post("/api/auth/login", {
         username,
-        password
+        password,
       });
       $user = data.user;
       push("/dashboard");
@@ -45,8 +45,8 @@
             bind:value={username}
             class="input"
             required
-            class:is-danger={errorMessage} />
-
+            class:is-danger={errorMessage}
+          />
         </div>
       </div>
       <div class="field">
@@ -58,7 +58,8 @@
             bind:value={password}
             class="input"
             required
-            class:is-danger={errorMessage} />
+            class:is-danger={errorMessage}
+          />
         </div>
       </div>
       <div class="control">
@@ -72,5 +73,4 @@
     </p>
     <hr />
   </div>
-
 </div>

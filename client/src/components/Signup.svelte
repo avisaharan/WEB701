@@ -14,7 +14,7 @@
     try {
       const { data } = await axios.post("/api/auth/sign-up", {
         username,
-        password
+        password,
       });
       $user = data.user;
       push("/dashboard");
@@ -42,7 +42,8 @@
             bind:value={username}
             class="input"
             required
-            class:is-danger={errorMessage} />
+            class:is-danger={errorMessage}
+          />
           {#if errorMessage}
             <p class="help is-danger">{errorMessage}</p>
           {/if}
@@ -66,5 +67,4 @@
     </p>
     <hr />
   </div>
-
 </div>

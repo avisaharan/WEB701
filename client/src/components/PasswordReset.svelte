@@ -1,7 +1,7 @@
 <script>
-    import axios from "axios";
-    import { user, tokens } from "../stores";
-      let oldPassword;
+  import axios from "axios";
+  import { user, tokens } from "../stores";
+  let oldPassword;
   let newPassword;
   let errorMessage;
   let successMessage;
@@ -9,7 +9,7 @@
   $: if (oldPassword) {
     errorMessage = null;
   }
-    async function changePassword() {
+  async function changePassword() {
     try {
       await axios.post("/api/auth/update-password", {
         oldPassword,
@@ -26,7 +26,6 @@
       }
     }
   }
-  
 </script>
 
 <div class="container">

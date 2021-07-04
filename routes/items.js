@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
             throw new Error('No items found')
         }
         res.status(200).json(items)
-        
+
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -31,7 +31,7 @@ router.get('/myItemsList', ensureLogin, async (req, res) => {
             throw new Error('No items found')
         }
         res.status(200).json(items)
-        
+
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -78,8 +78,8 @@ router.delete('/:id', ensureLogin, async (req, res) => {
 router.post(
     '/buyStuff',
     async (req, res) => {
-        const {cartItems} = req.body
-        let item,removed;
+        const { cartItems } = req.body
+        let item, removed;
         try {
             for (var i = 0; i < cartItems.length; i++) {
                 item = await Item.findById(cartItems[i]._id)

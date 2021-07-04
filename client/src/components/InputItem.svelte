@@ -5,7 +5,8 @@
   $: disabled = itemName == "";
   let donate = true;
 </script>
-<hr/>
+
+<hr />
 <div class="container box">
   <div class="field">
     <!-- svelte-ignore a11y-label-has-associated-control -->
