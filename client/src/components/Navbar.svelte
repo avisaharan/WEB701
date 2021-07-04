@@ -15,8 +15,7 @@
   <div class="container">
     <div class="navbar-brand">
       <a href="#/" class="navbar-item">
-        <span class="title"></span>
-        <a class="button is-primary is-light " href="#/">
+        <a class="button is-primary is-light is-outlined" href="#/">
           Home 💸
         </a>
       </a>
@@ -25,7 +24,8 @@
         class:is-active={isActive}
         on:click={() => (isActive = !isActive)}
         aria-expanded="false"
-        aria-label="menu">
+        aria-label="menu"
+      >
         <span aria-hidden="true" />
         <span aria-hidden="true" />
         <span aria-hidden="true" />
@@ -36,20 +36,31 @@
         <div class="navbar-item">
           <div class="buttons">
             {#if $user}
-              <a class="button is-primary is-light" href="#/profile">
-                👤 {$user.username.charAt(0).toUpperCase() + $user.username.slice(1)}'s Profile
+              <a
+                class="button is-primary is-light is-outlined"
+                href="#/profile"
+              >
+                👤 {$user.username.charAt(0).toUpperCase() +
+                  $user.username.slice(1)}'s Profile
               </a>
-              <a class="button is-primary is-light" href="#/myItems">Items Listed By Me 🛒
+              
+
+              <a class="button is-primary is-light is-outlined" href="#/myItems"
+                >Items Listed By Me 🛒
               </a>
-              <a class="button is-primary is-light" href="#/cart">Cart 🛒
+              <a class="button is-primary is-light is-outlined" href="#/cart"
+                >Cart 🛒
               </a>
-              <button class="button" on:click={logout}>Log out</button>
+              <button class="button is-warning " on:click={logout}
+                >Log out</button
+              >
             {:else}
-              <a class="button" href="#/login">Login</a>
+              <a class="button is-primary is-light is-outlined" href="#/login"
+                >Login</a
+              >
             {/if}
           </div>
         </div>
-
       </div>
     </div>
   </div>

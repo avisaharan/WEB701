@@ -12,7 +12,7 @@
   }
 </script>
 <hr/>
-<table class="table container box" >
+<table class="table container box " >
   <thead>
     <tr>
       <th>Item</th>
@@ -28,7 +28,7 @@
     <td>{item.name}</td>
     <td>{item.value}</td>
     <td>{(item.date).substring(0, (item.date).length - 14)}</td>
-    <td><button class='delete' on:click={deleteItemFromInventory(item._id)}></button></td>
+    <td><button class='delete is-medium' on:click={deleteItemFromInventory(item._id)}></button></td>
   </tr>
   {/if}
   {/each}

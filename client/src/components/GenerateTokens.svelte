@@ -10,6 +10,9 @@
   // let tokensLeft=tokensLeft+0.02*(vOfAllItems-vOfYourItems-tokesinCirculation-avgEarnings+avgSpending);
   // tokensLeft=Math.floor(Math.random() * 15);
   async function generateTokens() {
+    if(avgEarning>700 || avgSpending>700){
+      return alert("You need to reduce your expenses. Currently, only poeple with less than $700 per month of earnings are eligible.")
+    }
     if(avgEarning<avgSpending){
       newTokens=avgSpending-avgEarning;
     try{
@@ -31,8 +34,7 @@
   <div class="section">
     <h2 class="title">Generate Tokens</h2>
     <h2>
-      Tokens will
-      be calculated based on your requirements, spending habits and value of
+      Tokens will be calculated based on your spending habits, value of
       items available for donation, and items listed by you.
     </h2>
     <hr />

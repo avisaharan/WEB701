@@ -1,18 +1,11 @@
 <script>
-  import { items, cartItems, tokens } from "../stores";
-  import axios from "axios";
-  let tokensRequired;
-  if($cartItems.length>0){
-    tokensRequired=$cartItems.reduce((a, b) => ({
-            value: a.value + b.value,
-  })).value;
-  }
-  
+  import { items, cartItems, tokens, tokensRequired } from "../stores";
+  import axios from "axios";  
   let newTokens=0;
 
   async function buyStuff(){
-    if($tokens>tokensRequired){
-    newTokens=$tokens-tokensRequired;
+    if($tokens>$tokensRequired){
+    newTokens=$tokens-$tokensRequired;
     try{
       const { data } = await axios.post("/api/auth/generateToken", { "tokens": newTokens });
       $tokens=data.tokens;
